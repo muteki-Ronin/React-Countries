@@ -7,8 +7,7 @@ import * as api from "../api/config";
 
 import { rootReducer } from "./root-reducer";
 
-const composeEnhancers =
-  window.__REDUX_DEVTOOLS_EXTENSIONS_COMPOSE__ || compose;
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 export const store = createStore(
   rootReducer,
