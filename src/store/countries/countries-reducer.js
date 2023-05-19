@@ -1,4 +1,4 @@
-// ACTIONS
+// CONSTS
 import { SET_COUNTRIES, SET_LOADING, SET_ERROR } from "./countries-actions";
 
 const initialState = {

@@ -8,9 +8,10 @@ import { Card } from "../components/Card";
 import { Controls } from "../components/Controls";
 // SELECTORS
 import {
-  selectAllCountries,
+  selectVisibleCountries,
   selectAllCountriesInfo,
 } from "../store/countries/countries-selectors";
+import { selectControls } from "../store/controls/controls-selectors";
 // ACTIONS
 import { loadCountries } from "../store/countries/countries-actions";
 
@@ -18,7 +19,10 @@ export const HomePage = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const countries = useSelector(selectAllCountries);
+  const { search, region } = useSelector(selectControls);
+  const countries = useSelector((state) =>
+    selectVisibleCountries(state, { search, region })
+  );
   const { status, error, qty } = useSelector(selectAllCountriesInfo);
 
   useEffect(() => {
