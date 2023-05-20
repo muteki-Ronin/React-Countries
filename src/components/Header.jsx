@@ -10,6 +10,7 @@ import styled from "styled-components";
 import { IoMoon, IoMoonOutline } from "react-icons/io5";
 // ACTIONS
 import { setTheme } from "../store/theme/theme-actions";
+import { clearControls } from "../store/controls/controls-actions";
 // SELECTORS
 import { selectTheme } from "../store/theme/theme-selectors";
 
@@ -48,6 +49,10 @@ export const Header = () => {
   const toggleTheme = () =>
     dispatch(setTheme(theme === "light" ? "dark" : "light"));
 
+  const handleClean = () => {
+    dispatch(clearControls());
+  };
+
   useEffect(() => {
     document.body.setAttribute("data-theme", theme);
   }, [theme]);
@@ -56,7 +61,7 @@ export const Header = () => {
     <HeaderEl>
       <Container>
         <Wrapper>
-          <Title>Where is the world?</Title>
+          <Title onClick={handleClean}>Where is the world?</Title>
           <ModeSwitcher onClick={toggleTheme}>
             {theme === "light" ? (
               <IoMoonOutline size="14px" />
