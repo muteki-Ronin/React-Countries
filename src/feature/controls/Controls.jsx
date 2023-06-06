@@ -1,12 +1,8 @@
-// CORE
-import { useDispatch, useSelector } from "react-redux";
 // COMPONENTS
 import { Search } from "./Search";
 import { CustomSelect } from "./CustomSelect";
-// SELECTORS
-import { selectRegion } from "../store/controls/controls-selectors";
-// ACTIONS
-import { setRegion } from "../store/controls/controls-actions";
+// CUSTOM-HOOKS
+import { useControls } from "./use-controls";
 // STYLES
 import styled from "styled-components";
 
@@ -32,13 +28,8 @@ const Wrapper = styled.div`
 `;
 
 export const Controls = () => {
-  const dispatch = useDispatch();
-  const region = useSelector(selectRegion);
-
-  const handleSelect = (reg) => {
-    dispatch(setRegion(reg?.value || ""));
-  };
-
+  const [region, handleSelect] = useControls();
+  
   return (
     <Wrapper>
       <Search />

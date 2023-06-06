@@ -1,9 +1,5 @@
-// CORE
-import { useDispatch, useSelector } from "react-redux";
-// ACTIONS
-import { setSearch } from "../store/controls/controls-actions";
-// SELECTORS
-import { selectSearch } from "../store/controls/controls-selectors";
+// CUSTOM-HOOKS
+import { useSearch } from "./use-search";
 // STYLES
 import styled from "styled-components";
 // ICONS
@@ -38,13 +34,8 @@ const Input = styled.input.attrs({
 `;
 
 export const Search = () => {
-  const dispatch = useDispatch();
-  const search = useSelector(selectSearch);
-
-  const handleSearch = (e) => {
-    dispatch(setSearch(e.target.value));
-  };
-
+  const [search, handleSearch] = useSearch();
+  
   return (
     <InputContainer>
       <IoSearch />

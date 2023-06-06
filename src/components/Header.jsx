@@ -1,13 +1,12 @@
 // CORE
-import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 // COMPONENTS
 import { Container } from "./Container";
 import { ThemeSwitcher } from "../feature/theme/ThemeSwitcher";
+// CUSTOM-HOOKS
+import { useCleanup } from "../feature/controls/use-cleanup";
 // STYLES
 import styled from "styled-components";
-// ACTIONS
-import { clearControls } from "../store/controls/controls-actions";
 
 const HeaderEl = styled.header`
   box-shadow: var(--shadow);
@@ -31,17 +30,13 @@ const Title = styled(Link).attrs({
 `;
 
 export const Header = () => {
-  const dispatch = useDispatch();
-
-  const handleClean = () => {
-    dispatch(clearControls());
-  };
+  const cleanUp = useCleanup();
 
   return (
     <HeaderEl>
       <Container>
         <Wrapper>
-          <Title onClick={handleClean}>Where is the world?</Title>
+          <Title onClick={cleanUp}>Where is the world?</Title>
           <ThemeSwitcher />
         </Wrapper>
       </Container>
