@@ -7,12 +7,14 @@ import * as api from "./api/config";
 import { themeReducer } from "./feature/theme/theme-slice";
 import { controlsReducer } from "./feature/controls/controls-slice";
 import { countryReducer } from "./feature/countries/countries-slice";
+import { detailsReducer } from "./feature/details/details-slice";
 
 export const store = configureStore({
   reducer: {
     theme: themeReducer,
     controls: controlsReducer,
     countries: countryReducer,
+    details: detailsReducer,
   },
   devTools: true,
   middleware: (getDefaultMiddleware) =>
