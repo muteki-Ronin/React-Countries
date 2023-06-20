@@ -16,7 +16,6 @@ export const store = configureStore({
     countries: countryReducer,
     details: detailsReducer,
   },
-  devTools: true,
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       thunk: {

@@ -1,6 +1,6 @@
-import styled from 'styled-components';
-
 import Select from 'react-select';
+// STYLES
+import styled from 'styled-components';
 
 export const CustomSelect = styled(Select).attrs({
   styles: {

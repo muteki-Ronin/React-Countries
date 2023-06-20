@@ -1,5 +1,7 @@
-import styled from 'styled-components';
-import { Container } from './Container';
+// COMPONENTS
+import { Container } from "./Container";
+// STYLES
+import styled from "styled-components";
 
 const Wrapper = styled.main`
   padding: 2rem 0;
